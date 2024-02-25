@@ -1,16 +1,19 @@
 :root {
-  --main-color: #ff4335;
-  --hover-color: #f21e0f;
-  --blue-color: #0075ff;
+  --main-color: #0075ff;
+  --hover-color: #002596;
+  --orange-color: #ff4335;
   --green-color: #009688;
   --violet-color: #d563e3;
-  --red-color: #ff64ae;
+  --pink-color: #df42b1;
+  --red-color: #fc0026;
   --yellow-color: #ffc55c;
   --white-color: #FFF;
+  --gray-color: #DDD;
   --black-color: #000;
   --section-bg: #151853;
   --section-gradient: linear-gradient(145deg, #5059ddd7 0%, #df42b0d8 100%);
-  --btn-gradient: linear-gradient(120deg, #505add 0%, #df42b1 100%);
+  --btn-gradient: linear-gradient(145deg, #0075ff, #002596);
+  --main-transition: .5s;
 }
 
 * {
@@ -24,12 +27,9 @@
 }
 
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-color: #EEE;
+  position: relative;
+  font-family: Arial;
 }
 
 a {
@@ -39,4 +39,47 @@ a {
 
 ul {
   list-style: none;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--main-color);
+}
+
+/* Start Components */
+.btn-bg {
+  background-image: var(--btn-gradient) !important;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  border: none;
+  transition: var(--main-transition) !important;
+}
+
+.btn-bg:hover {
+  color: var(--white-color) !important;
+}
+
+.btn-bg::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: white;
+  background-color: #002596;
+  height: 100%;
+  width: 0;
+  z-index: -1;
+  transition: var(--main-transition) !important;
+}
+
+.btn-bg:hover::before {
+  width: 100%;
+}
+
+button:hover i {
+  animation: opacity-change 1s .3s linear infinite;
 }
