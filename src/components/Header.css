@@ -35,6 +35,13 @@
 }
 
 @media (max-width: 767px) {
+
+  .navbar .nav-link.active,
+  .navbar .nav-link:hover,
+  .navbar .dropdown-menu li a:hover {
+    background-color: var(--gray-color);
+  }
+
   .navbar-collapse {
     position: fixed;
     background: var(--white-color);

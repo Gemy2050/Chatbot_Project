@@ -1,0 +1,30 @@
+.error {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error .container {
+  width: 500px;
+  max-width: 100%;
+  margin: auto;
+}
+
+.error .head {
+  font-size: 120px;
+}
+
+.error p:first-of-type {
+  color: var(--main-color);
+}
+
+.error .image img {
+  width: 180px;
+}
+
+@media (max-width: 575px) {
+  .error .image img {
+    width: 100px;
+  }
+}

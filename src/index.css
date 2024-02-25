@@ -12,7 +12,7 @@
   --black-color: #000;
   --section-bg: #151853;
   --section-gradient: linear-gradient(145deg, #5059ddd7 0%, #df42b0d8 100%);
-  --btn-gradient: linear-gradient(145deg, #0075ff, #002596);
+  --btn-gradient: linear-gradient(to right bottom, #0075ff, #0960e4, #0b4cca, #0738b0, #002596);
   --main-transition: .5s;
 }
 
@@ -27,7 +27,7 @@
 }
 
 body {
-  background-color: #EEE;
+  /* background-color: #EEE; */
   position: relative;
   font-family: Arial;
 }
@@ -45,8 +45,13 @@ ul {
   width: 15px;
 }
 
+::-webkit-scrollbar-track {
+  box-shadow: 0 0 15px var(--main-color) inset;
+}
+
 ::-webkit-scrollbar-thumb {
   background-color: var(--main-color);
+  box-shadow: 0 0 50px var(--main-color);
 }
 
 /* Start Components */
