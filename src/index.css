@@ -39,6 +39,7 @@ a {
 
 ul {
   list-style: none;
+  padding: 0;
 }
 
 ::-webkit-scrollbar {
@@ -52,6 +53,10 @@ ul {
 ::-webkit-scrollbar-thumb {
   background-color: var(--main-color);
   box-shadow: 0 0 50px var(--main-color);
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  appearance: none;
 }
 
 /* Start Components */
@@ -85,6 +90,6 @@ ul {
   width: 100%;
 }
 
-button:hover i {
+button:hover svg {
   animation: opacity-change 1s .3s linear infinite;
 }
