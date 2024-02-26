@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Home from "./components/Home";
 import Register from "./components/Register";
 import Error from "./components/Error";
+import Profile from "./components/Profile";
 
 
 
@@ -14,6 +15,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/profile" element={<Profile/>} />
         
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<Error />} />
