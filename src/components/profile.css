@@ -1,6 +1,8 @@
 .profile {
   margin-top: 72px;
   display: flex;
+  min-height: calc(100vh - 72px);
+  position: relative;
 }
 
 .profile .slider {
@@ -8,56 +10,41 @@
   border-right: 1px solid var(--gray-color);
   box-shadow: 0 0 25px var(--gray-color);
   width: 200px;
+  position: sticky;
+  top: 72px;
   height: calc(100vh - 72px);
-  display: flex;
-  flex-direction: column;
 }
 
 @media (max-width: 767px) {
+
+  .profile-info {
+    width: calc(100% - 60px) !important;
+    margin-top: 0 !important;
+  }
+
   .profile .slider {
-    flex-direction: row;
-    height: auto !important;
-    width: 100%;
-    box-shadow: none;
-    margin-top: 10px;
+    width: 60px !important;
+    overflow: hidden;
   }
 
   .profile .slider h1 {
-    font-size: 25px;
-    padding: 10px;
+    font-size: 16px !important;
+    padding: 10px 0 !important;
   }
 
-  .profile .slider ul {
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    margin: 0 10px;
-  }
-
-  .profile .slider ul li,
-  button.log-out {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0;
-    width: 70px;
+  .profile .slider ul li {
     font-size: 14px !important;
+    justify-content: center;
   }
 
-  .profile .slider ul li svg,
-  button.log-out svg {
+  .profile .slider ul li span {
+    display: none;
+  }
+
+  .profile .slider ul li svg {
     margin: 0 !important;
   }
 
-  .profile button.log-out {
-    margin: 0 !important;
-    width: 80px;
-    padding: 0;
-    margin: 0 15px !important;
-    text-align: center;
-  }
 
   .profile .info {
     flex-direction: column;
@@ -69,26 +56,36 @@
   }
 }
 
-@media (max-width: 575px) {
-  .profile .slider h1 {
-    font-size: 22px;
-  }
-
-  .profile .slider ul li span,
-  button.log-out span {
-    display: none;
-  }
-
-  .profile .slider ul li,
-  button.log-out {
-    width: 35px !important;
-  }
-}
-
 
 .slider h1 {
   color: var(--black-color);
-  padding: 20px 10px;
+  padding: 10px;
+  margin-bottom: 25px;
+  position: relative;
+  text-align: center;
+}
+
+.slider h1::before {
+  position: absolute;
+  content: '';
+  width: 60%;
+  height: 2px;
+  background-color: var(--black-color);
+  left: 20%;
+  bottom: 0;
+}
+
+.slider h1::after {
+  position: absolute;
+  content: '';
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: var(--black-color);
+  border: 3px solid var(--white-color);
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -5px;
 }
 
 .slider ul {
@@ -97,8 +94,7 @@
   gap: 10px;
 }
 
-.slider ul li,
-button.log-out {
+.slider ul li {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -111,13 +107,10 @@ button.log-out {
   font-size: 15px !important;
 }
 
-.slider ul li:hover :is(svg, span) {
-  color: var(--main-color);
+.slider ul li:is(:hover, .active) {
+  background-color: var(--gray-color);
 }
 
-.slider ul li.active :is(svg, span) {
-  color: var(--main-color);
-}
 
 .slider ul li svg,
 button.log-out svg {
@@ -134,7 +127,7 @@ button.log-out svg {
 }
 
 .profile .profile-info {
-  flex: 1;
+  width: 100%;
 }
 
 .profile-info .info {
@@ -152,10 +145,10 @@ button.log-out svg {
 
 .info label {
   position: absolute;
-  bottom: 3px;
-  right: 3px;
   width: 25px;
   height: 25px;
+  bottom: 3px;
+  right: 3px;
   border-radius: 50%;
   background-color: var(--main-color);
   color: white;
@@ -183,14 +176,12 @@ button.log-out svg {
 
 .proifle-form {
   position: relative;
-}
-
-.proifle-form form {
-  width: 570px;
+  width: 550px;
   max-width: 100%;
   margin: auto;
   margin-top: 30px;
 }
+
 
 .proifle-form form input {
   text-align: center;
@@ -228,57 +219,16 @@ input:focus:-ms-input-placeholder {
 
 
 
-
-
-
 .proifle-form form .submit {
-  width: 95%;
+  width: 250px;
+  max-width: 100%;
+  margin: 10px auto;
   color: var(--white-color);
   background-color: var(--main-color);
   padding: 10px 15px;
-  margin: 10px;
   transition: var(--main-transition);
 }
 
 .proifle-form form .submit:hover {
   background-color: var(--hover-color);
-}
-
-@media (max-width:767px) {
-  .profile {
-    flex-direction: column;
-  }
-
-  .log-out {
-    right: 10px;
-  }
-
-  .profile-info {
-    width: 100%;
-
-  }
-
-  .info img {
-    width: 150px;
-    height: 150px;
-  }
-
-  .info h3 {
-    font-size: 15px;
-  }
-
-
-
-  .proifle-form {
-    width: 100%;
-  }
-
-  .proifle-form form {
-    width: 100%;
-  }
-
-  .proifle-form form input {
-    width: 100%;
-  }
-
 }

@@ -5,12 +5,12 @@ import {
   faPen,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
-import "./profile.css";
+import "./Profile.css";
 export default function Profile() {
   return (
     <>
-      <div className="profile">
-        <div className="slider">
+      <div className="profile ">
+        <div className="slider px-2">
           <h1>profile</h1>
           <ul>
             <li className="active">
@@ -18,21 +18,22 @@ export default function Profile() {
               <span className="user-info"> User info</span>
             </li>
             <li>
-              <FontAwesomeIcon className="settingicon" icon={faGear} />
-              <span className="setting">Setting</span>
-            </li>
-            <li>
               <FontAwesomeIcon className="settingicon" icon={faBell} />
               <span className="setting">Notifications</span>
             </li>
+            <hr />
+            <li>
+              <FontAwesomeIcon className="settingicon" icon={faGear} />
+              <span className="setting">Setting</span>
+            </li>
+            <li className="log-out mt-auto mb-3">
+              <FontAwesomeIcon
+                className="logout-icon"
+                icon={faRightFromBracket}
+              />
+              <span>Log out</span>
+            </li>
           </ul>
-          <button className="log-out mt-auto mb-3">
-            <FontAwesomeIcon
-              className="logout-icon"
-              icon={faRightFromBracket}
-            />
-            <span>Log out</span>
-          </button>
         </div>
         <div className="profile-info my-3">
           <div className="info">
@@ -90,10 +91,6 @@ export default function Profile() {
                   placeholder="Location"
                 />
               </div>
-              {/* <input type="text" placeholder="last name" />
-
-              <input type="text" placeholder="phone" />
-              <input type="email" placeholder="email" /> */}
 
               <button className="submit rounded-3 mt-4">Save Changes</button>
             </form>
