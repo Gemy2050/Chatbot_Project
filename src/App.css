@@ -1,0 +1,57 @@
+.page {
+  margin-top: 72px;
+  display: flex;
+  min-height: calc(100vh - 72px);
+  position: relative;
+}
+
+.page h1 {
+  margin: 20px 20px 40px;
+  position: relative
+}
+
+.page h1::before {
+  content: '';
+  position: absolute;
+  background-color: black;
+  width: 40px;
+  height: 2px;
+  left: 0;
+  bottom: -10px;
+}
+
+.page h1::after {
+  content: '';
+  position: absolute;
+  background-color: white;
+  width: 80px;
+  height: 2px;
+  left: 40px;
+  bottom: -10px;
+}
+
+.page .content {
+  width: 100%;
+}
+
+.page .content .grid-page {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+  gap: 20px;
+  margin: 20px;
+}
+
+@media(max-width: 767px) {
+  .page .content .grid-page {
+    grid-template-columns: minmax(180px, 1fr);
+    margin: 0 10px;
+    gap: 10px;
+  }
+}
+
+.page .content .grid-page>div {
+  background-color: var(--white-color);
+  border-radius: 6px;
+  padding: 15px;
+  margin: 0 0 10px 0;
+}

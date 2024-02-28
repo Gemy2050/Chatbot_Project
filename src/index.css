@@ -16,6 +16,10 @@
   --main-transition: .5s;
 }
 
+.c-grey {
+  color: #777;
+}
+
 * {
   margin: 0;
   padding: 0;

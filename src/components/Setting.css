@@ -1,0 +1,123 @@
+@media (max-width: 767px) {
+  .profile-info {
+    width: calc(100% - 60px) !important;
+    margin-top: 0 !important;
+  }
+
+  .profile .info {
+    flex-direction: column;
+
+  }
+
+  .info .text {
+    text-align: center;
+  }
+}
+
+
+.profile .profile-info {
+  width: 100%;
+}
+
+.profile-info .info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  text-transform: capitalize;
+}
+
+.info .image {
+  position: relative;
+}
+
+.info label {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  bottom: 3px;
+  right: 3px;
+  border-radius: 50%;
+  background-color: var(--main-color);
+  color: white;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: var(--main-transition);
+}
+
+.info label:hover {
+  background-color: var(--hover-color);
+}
+
+.info img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.info p {
+  color: #666;
+}
+
+.profile-form {
+  position: relative;
+  margin: auto;
+  margin-top: 30px;
+
+}
+
+.profile-form form {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.profile-form form input {
+  text-align: center;
+}
+
+.profile-form form label {
+  margin-bottom: 4px !important;
+  font-size: 15px;
+}
+
+:focus::-webkit-input-placeholder {
+  opacity: 0;
+  -webkit-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
+}
+
+input:focus::-moz-placeholder {
+  opacity: 0;
+  -moz-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
+}
+
+input:focus:-moz-placeholder {
+  opacity: 0;
+  -moz-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
+}
+
+input:focus:-ms-input-placeholder {
+  opacity: 0;
+  -ms-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.profile-form form .submit {
+  width: 250px;
+  max-width: 100%;
+  margin: 10px auto 0;
+  color: var(--white-color);
+  background-color: var(--main-color);
+  padding: 10px;
+  transition: var(--main-transition);
+}
+
+.profile-form form .submit:hover {
+  background-color: var(--hover-color);
+}

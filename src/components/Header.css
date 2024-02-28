@@ -1,13 +1,14 @@
 .navbar {
   background-color: #ffffff10;
-  background-color: var(--white-color);
   background-color: #EEE;
+  background-color: var(--white-color);
+  background-color: #f8f9fa;
   transition: var(--main-transition);
   z-index: 999;
   top: 0;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 15px #817c7c;
+  /* box-shadow: 0 0 15px #817c7c; */
 }
 
 

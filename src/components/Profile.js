@@ -1,102 +1,57 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBell, faUser } from "@fortawesome/free-regular-svg-icons";
-import {
-  faGear,
-  faPen,
-  faRightFromBracket,
-} from "@fortawesome/free-solid-svg-icons";
-import "./Profile.css";
-export default function Profile() {
-  return (
-    <>
-      <div className="profile ">
-        <div className="slider px-2">
-          <h1>profile</h1>
-          <ul>
-            <li className="active">
-              <FontAwesomeIcon className="usericon" icon={faUser} />
-              <span className="user-info"> User info</span>
-            </li>
-            <li>
-              <FontAwesomeIcon className="settingicon" icon={faBell} />
-              <span className="setting">Notifications</span>
-            </li>
-            <hr />
-            <li>
-              <FontAwesomeIcon className="settingicon" icon={faGear} />
-              <span className="setting">Setting</span>
-            </li>
-            <li className="log-out mt-auto mb-3">
-              <FontAwesomeIcon
-                className="logout-icon"
-                icon={faRightFromBracket}
-              />
-              <span>Log out</span>
-            </li>
-          </ul>
-        </div>
-        <div className="profile-info my-3">
-          <div className="info">
-            <div className="image">
-              <img
-                alt="upload file"
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSj0LFhRvv9VG_gWlAS2HYkGe4Enn2V-BvHBg&usqp=CAU"
-              />
-              <label htmlFor="imageInput">
-                <FontAwesomeIcon icon={faPen} />
-              </label>
-              <input
-                type="file"
-                id="imageInput"
-                accept=".png, .jpg, .jpeg"
-                hidden
-              />
-            </div>
-            <div className="text">
-              <h3 className="m-0">luka adel</h3>
-              <p className="m-0">Cairo, Egypt</p>
-            </div>
-          </div>
-          <div className="proifle-form px-4">
-            <form action="#" className="row g-4">
-              <div className="col-sm-6">
-                <label className="form-label m-0 text-muted">First Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="First Name"
-                />
-              </div>
-              <div className="col-sm-6">
-                <label className="form-label m-0 text-muted">Last Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Last Name"
-                />
-              </div>
-              <div className="col-sm-6">
-                <label className="form-label m-0 text-muted">Phone</label>
-                <input
-                  type="number"
-                  className="form-control"
-                  placeholder="Phone Number"
-                />
-              </div>
-              <div className="col-sm-6">
-                <label className="form-label m-0 text-muted">Location</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Location"
-                />
-              </div>
+import React from "react";
+import Sidebar from "./Sidebar";
 
-              <button className="submit rounded-3 mt-4">Save Changes</button>
-            </form>
+import "./Profile.css";
+
+function Profile() {
+  return (
+    <div className="page">
+      <Sidebar />
+      <div className="content">
+        <h1 className="p-relative">Profile</h1>
+        <div className="grid-page profile-page">
+          <div className="overview d-flex align-items-center py-md-5">
+            <div className="avatar-box text-center p-3">
+              <img
+                src="https://gemy2050.github.io/Dashboard/imgs/avatar.png"
+                alt=""
+              />
+              <h4 className="my-2">Mohamed Omar</h4>
+              <span className="d-block">Level 3</span>
+              <div className="level rounded-4 position-relative">
+                <span style={{ width: "70%" }}></span>
+              </div>
+            </div>
+            <div className="info-box w-100 px-md-3">
+              <div className="box p-3 text-center text-md-start">
+                <h4 className="m-0 mb-2 w-100">Personal Information: </h4>
+                <div>
+                  <span className="c-grey">Full Name: </span>
+                  <span>Mohamed Omar</span>
+                </div>
+                <div>
+                  <span className="c-grey">Email: </span>
+                  <span>mo@mail.com</span>
+                </div>
+                <div>
+                  <span className="c-grey">Phone: </span>
+                  <span>01021595806</span>
+                </div>
+                <div>
+                  <span className="c-grey">Gender: </span>
+                  <span>Male</span>
+                </div>
+                <div>
+                  <span className="c-grey">Country: </span>
+                  <span>Egypt</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
+
+export default Profile;

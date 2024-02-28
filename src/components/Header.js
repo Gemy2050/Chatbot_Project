@@ -1,12 +1,15 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Header.css";
+
+import logo from "./images/logo.jpeg";
+
 function Header() {
   const navigate = useNavigate();
   return (
     <nav className="navbar navbar-expand-md position-fixed start-0 end-0">
       <div className="container">
         <NavLink to="/" className="navbar-brand">
-          <img src="images/logo.jpeg" alt="logo" />
+          <img src={logo} alt="logo" />
         </NavLink>
         <button
           className="navbar-toggler"
