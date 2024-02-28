@@ -1,5 +1,8 @@
 import "./Error.css";
 import { Link } from "react-router-dom";
+
+import errorImage from "./images/sad.gif";
+
 function Error() {
   return (
     <>
@@ -8,11 +11,7 @@ function Error() {
           <h1 className="head">
             4
             <span className="image mx-3">
-              <img
-                src="./images/sad.gif"
-                className="img-fluid"
-                alt="not found"
-              />
+              <img src={errorImage} className="img-fluid" alt="not found" />
             </span>
             4
           </h1>

@@ -1,4 +1,5 @@
 import "./Home.css";
+import landingImage from "./images/landing_image.png";
 
 function Home() {
   return (
@@ -12,7 +13,7 @@ function Home() {
           </p>
           <button className="btn-bg">Get Started</button>
         </div>
-        <img src="./images/landing_image.png" alt="" />
+        <img src={landingImage} alt="" />
       </div>
     </div>
   );
