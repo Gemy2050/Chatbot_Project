@@ -1,7 +1,7 @@
 import "./Error.css";
 import { Link } from "react-router-dom";
 
-import errorImage from "./images/sad.gif";
+import errorImage from "../images/sad.gif";
 
 function Error() {
   return (

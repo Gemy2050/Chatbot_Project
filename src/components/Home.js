@@ -1,5 +1,5 @@
 import "./Home.css";
-import landingImage from "./images/landing_image.png";
+import landingImage from "../images/landing_image.png";
 
 function Home() {
   return (

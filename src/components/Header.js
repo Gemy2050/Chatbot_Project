@@ -1,7 +1,7 @@
 import { NavLink, useNavigate } from "react-router-dom";
 import "./Header.css";
 
-import logo from "./images/logo.jpeg";
+import logo from "../images/logo.jpeg";
 
 function Header() {
   const navigate = useNavigate();
