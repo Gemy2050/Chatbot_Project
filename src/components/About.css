@@ -1,0 +1,32 @@
+.about-box {
+  background-color: var(--white-color);
+}
+.about-box .contact .faphone,.faEnvelope {
+  margin-right: 10px;
+  color: var(--main-color);
+  background-color:var(--gray-color);
+  font-size: 20px;
+  padding: 10px;
+  transition: var(--main-transition);
+  border-radius: 50%;
+  cursor: pointer;
+}
+.about-box .contact .faphone:hover , .faEnvelope:hover{
+  background-color: var(--main-color);
+  color: var(--white-color);
+}
+.info{
+  text-align: center;
+}
+.info h4{
+  color: var(--main-color);
+}
+
+@media(max-width: 992px) { 
+  
+  .page .content .grid-page  {
+    grid-template-columns: minmax(300px, 1fr) !important;
+    margin: 0 10px !important;
+    gap: 10px !important;
+  }
+}
