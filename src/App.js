@@ -7,6 +7,7 @@ import Error from "./components/Error";
 import Setting from "./components/Setting";
 import Profile from "./components/Profile";
 import Contact from "./components/Contact";
+import About from "./components/About";
 
 function App() {
   return (
@@ -14,12 +15,13 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<Home />} />
-
         <Route path="/profile" element={<Profile />} />
         <Route path="/setting" element={<Setting />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/about" element={<About />} />
 
         <Route path="/register" element={<Register />} />
+
         <Route path="*" element={<Error />} />
       </Routes>
     </div>
