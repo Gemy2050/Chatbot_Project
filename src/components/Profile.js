@@ -1,7 +1,7 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 
-import "./Profile.css";
+import "./profile.css";
 
 function Profile() {
   return (
