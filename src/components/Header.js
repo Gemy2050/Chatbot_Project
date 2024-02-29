@@ -57,7 +57,7 @@ function Header() {
           </ul>
           <button
             onClick={() => navigate("/register")}
-            className="btn-bg ms-auto mt-2 mt-md-0 py-2 px-3 rounded-pill text-white"
+            className="register-btn ms-auto mt-2 mt-md-0 py-2 px-3 rounded-pill text-white"
           >
             Register
           </button>

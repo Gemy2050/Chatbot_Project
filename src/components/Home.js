@@ -11,7 +11,7 @@ function Home() {
             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore
             beatae ratione natus excepturi veritatis repellendus esse.
           </p>
-          <button className="btn-bg">Get Started</button>
+          <button>Get Started</button>
         </div>
         <img src={landingImage} alt="" />
       </div>

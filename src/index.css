@@ -16,9 +16,35 @@
   --main-transition: .5s;
 }
 
-.c-grey {
-  color: #777;
+:has(input.dark-mode:checked) .c-grey {
+  color: #999;
 }
+
+.c-grey {
+  color: #848d97;
+}
+
+body.dark-mode :is(input, textarea) {
+  background-color: #19283f !important;
+  transition: var(--main-transition);
+}
+
+body.dark-mode :is(input:focus, textarea:focus) {
+  background-color: #182e4f;
+}
+
+body.dark-mode {
+  color: white;
+}
+
+:has(body.dark-mode):root {
+  --white-color: #0d1117 !important;
+  --black-color: #FFF !important;
+  --gray-color: #010409 !important;
+}
+
+
+
 
 * {
   margin: 0;
@@ -73,16 +99,12 @@ input[type="number"]::-webkit-inner-spin-button {
   transition: var(--main-transition) !important;
 }
 
-.btn-bg:hover {
-  color: var(--white-color) !important;
-}
 
 .btn-bg::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
-  background-color: white;
   background-color: #002596;
   height: 100%;
   width: 0;
@@ -92,8 +114,4 @@ input[type="number"]::-webkit-inner-spin-button {
 
 .btn-bg:hover::before {
   width: 100%;
-}
-
-button:hover svg {
-  animation: opacity-change 1s .3s linear infinite;
 }

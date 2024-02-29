@@ -35,7 +35,7 @@
  }
 
 
- .sidebar h3 {
+ /* .sidebar h3 {
    color: var(--black-color);
    padding: 10px;
    margin-bottom: 25px;
@@ -64,7 +64,7 @@
    left: 50%;
    transform: translateX(-50%);
    bottom: -5px;
- }
+ } */
 
  .sidebar ul {
    display: flex;
@@ -94,15 +94,22 @@
    width: 100%;
  }
 
- .sidebar ul li:hover,
- .sidebar ul li:has(.active) {
+ .sidebar ul li a:hover,
+
+ .sidebar ul li a:hover svg {
+   background-color: var(--gray-color);
+ }
+
+ .sidebar ul li a.active,
+ .sidebar ul li a.active svg {
+   color: var(--main-color);
    background-color: var(--gray-color);
  }
 
 
  .sidebar ul li svg,
- button.log-out svg {
-   color: black;
+ .log-out svg {
+   color: var(--black-color);
    font-size: 22px;
    margin-right: 10px;
    margin-left: 0;
@@ -111,5 +118,5 @@
 
  .log-out:hover,
  .log-out:hover svg {
-   color: var(--red-color);
+   color: var(--red-color) !important;
  }

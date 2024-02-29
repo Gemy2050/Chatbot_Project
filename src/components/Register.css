@@ -15,7 +15,7 @@
   border-radius: 10px;
   background-color: var(--white-color);
   position: relative;
-  box-shadow: 0 0 20px #ddd;
+  box-shadow: 0 0 10px #EEE;
   overflow: hidden;
 }
 
@@ -56,12 +56,12 @@
 
 .register form .route span {
   cursor: pointer;
-  color: #3f51b5;
+  color: var(--main-color)
 }
 
 
 .register h1 {
-  color: #3f51b5;
+  color: var(--main-color)
 }
 
 .register p {
@@ -74,6 +74,7 @@
 .register input {
   padding: 12px 10px;
   background-color: #eee;
+  color: var(--black-color);
   border-radius: 6px;
   display: block;
   width: 100%;
@@ -83,7 +84,7 @@
 }
 
 .register input:focus {
-  border: 1px solid #5c75ff;
+  border: 1px solid var(--main-color);
 }
 
 
@@ -112,7 +113,7 @@
 }
 
 .register form button {
-  background-color: #3f51b5;
+  background-color: var(--main-color);
 }
 
 .register a {
@@ -151,8 +152,8 @@
   top: 0;
   width: 50%;
   height: 100%;
-  /* background-color: #ff416c; */
   background-color: #3f51b5;
+  background-color: var(--main-color);
   overflow-x: hidden;
   z-index: 99;
   text-align: center;
@@ -172,7 +173,6 @@
   padding: 30px;
   transform: translateX(0);
   transition: transform 0.5s ease-in-out;
-  background-color: #3f51b5;
   transition: all 0.5s ease-in-out;
 }
 
@@ -180,7 +180,6 @@
   z-index: 99;
   opacity: 0;
   left: -200%;
-  background-image: linear-gradient(45deg, #3f51b5, #3f51b5);
 }
 
 .register .overlay-right {

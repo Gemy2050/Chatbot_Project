@@ -3,6 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
 }
 
 .error .container {
@@ -21,6 +22,14 @@
 
 .error .image img {
   width: 180px;
+}
+
+.error a {
+  background-color: var(--main-color);
+}
+
+.error a:hover {
+  background-color: var(--hover-color);
 }
 
 @media (max-width: 575px) {

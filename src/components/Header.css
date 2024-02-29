@@ -1,14 +1,14 @@
 .navbar {
   background-color: #ffffff10;
   background-color: #EEE;
-  background-color: var(--white-color);
   background-color: #f8f9fa;
+  background-color: var(--white-color);
   transition: var(--main-transition);
   z-index: 999;
   top: 0;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  /* box-shadow: 0 0 15px #817c7c; */
+  box-shadow: 0 0 10px #5f5e5e;
 }
 
 
@@ -23,6 +23,10 @@
   transition: .3s;
 }
 
+.navbar .nav-link {
+  color: var(--black-color);
+}
+
 .navbar .nav-link.active,
 .navbar .nav-link:hover,
 .navbar .dropdown-menu li a:hover {
@@ -34,6 +38,15 @@
   margin-left: 10px;
   cursor: pointer;
   color: var(--red-color) !important;
+}
+
+.navbar .register-btn {
+  background-color: var(--main-color);
+  transition: var(--main-transition);
+}
+
+.navbar .register-btn:hover {
+  background-color: var(--hover-color);
 }
 
 @media (max-width: 767px) {

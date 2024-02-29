@@ -22,7 +22,7 @@ function Error() {
             The page you are looking for might have been removed, had its name
             changed, or is unavailable.
           </p>
-          <Link to="/" className="btn btn-bg text-white fw-bold">
+          <Link to="/" className="btn text-white fw-bold">
             Back To Home
           </Link>
         </div>

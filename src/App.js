@@ -6,6 +6,7 @@ import Register from "./components/Register";
 import Error from "./components/Error";
 import Setting from "./components/Setting";
 import Profile from "./components/Profile";
+import Contact from "./components/Contact";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
 
         <Route path="/profile" element={<Profile />} />
         <Route path="/setting" element={<Setting />} />
+        <Route path="/contact" element={<Contact />} />
 
         <Route path="/register" element={<Register />} />
         <Route path="*" element={<Error />} />
