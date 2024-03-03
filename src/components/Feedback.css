@@ -1,0 +1,51 @@
+.feedback h3 {
+  text-align: center;
+  font-weight: bold;
+}
+.feedback p {
+  text-align: center;
+}
+
+.feedback .react-icon svg {
+  margin-right: 15px;
+  font-size: 40px;
+  cursor: pointer;
+  transition: var(--main-transition);
+  padding: 10px;
+  border-radius: 50%;
+  color: rgb(227, 227, 19);
+  background-color: #eee;
+}
+
+.feedback .react-icon svg:hover {
+  transform: scale(1.3);
+  color: yellow;
+  background-color: var(--main-color);
+}
+
+.feedback .form {
+  position: relative;
+}
+.feedback textarea {
+  border: 1px solid var(--main-color);
+  width: 100%;
+  height: 200px;
+  margin: 10px auto;
+  padding: 10px;
+  border-radius: 10px;
+  resize: none;
+}
+.feedback .form button {
+  background-color: var(--main-color);
+  padding: 10px 15px;
+  color: var(--white-color);
+  border-radius: 10px;
+  width: 100%;
+}
+
+@media (max-width: 767px) {
+  .feedback .react-icon svg {
+    font-size: 25px;
+    margin-right: 5px;
+  }
+}
