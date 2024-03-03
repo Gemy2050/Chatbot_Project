@@ -11,7 +11,12 @@ function Error() {
           <h1 className="head">
             4
             <span className="image mx-3">
-              <img src={errorImage} className="img-fluid" alt="not found" />
+              <img
+                src={errorImage}
+                className="img-fluid"
+                alt="not found"
+                loading="lazy"
+              />
             </span>
             4
           </h1>

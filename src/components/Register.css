@@ -15,7 +15,7 @@
   border-radius: 10px;
   background-color: var(--white-color);
   position: relative;
-  box-shadow: 0 0 10px #EEE;
+  box-shadow: 0 0 10px var(--main-color);
   overflow: hidden;
 }
 

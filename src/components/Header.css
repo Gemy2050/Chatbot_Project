@@ -8,7 +8,7 @@
   top: 0;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  box-shadow: 0 0 10px #5f5e5e;
+  box-shadow: 0 0 5px var(--main-color);
 }
 
 
@@ -16,6 +16,10 @@
   width: 45px;
   height: 45px;
   border-radius: 50%;
+}
+
+.navbar .navbar-toggler {
+  border: 1px solid var(--main-color);
 }
 
 .navbar .navbar-toggler:focus {
@@ -34,10 +38,14 @@
   transition: var(--main-transition);
 }
 
-.navbar .btn-close {
-  margin-left: 10px;
+.navbar .close {
+  margin: 10px;
+  padding: 5px;
   cursor: pointer;
-  color: var(--red-color) !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: red !important;
 }
 
 .navbar .register-btn {

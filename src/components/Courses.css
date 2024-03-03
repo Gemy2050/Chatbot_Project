@@ -1,0 +1,50 @@
+  .courses {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important;
+    margin: 0 10px;
+    gap: 10px;
+  }
+
+  @media (max-width: 767px) {
+    .courses {
+      grid-template-columns: minmax(200px, 1fr) !important;
+      margin: 10px !important;
+    }
+  }
+
+  .courses .course {
+    overflow: hidden;
+    background-color: var(--white-color);
+    padding: 0 !important;
+    padding-bottom: 30px !important;
+  }
+
+  .courses .course img.team {
+    position: absolute;
+    width: 60px;
+    top: 15px;
+    left: 15px;
+    border-radius: 50%;
+    border: 2px solid white;
+    z-index: 10;
+  }
+
+  .courses .course .content {
+    border-bottom: 1px solid var(--gray-color);
+  }
+
+  .courses .course .content p {
+    line-height: 1.6;
+  }
+
+  .courses .course .content a {
+    width: fit-content;
+    background-color: var(--main-color);
+    color: white;
+    margin: auto;
+    margin-bottom: -32px;
+    transition: var(--main-transition);
+  }
+
+  .courses .course .content a:hover {
+    background-color: var(--hover-color);
+  }

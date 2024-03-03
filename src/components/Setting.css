@@ -1,10 +1,18 @@
+.page .content .grid-page {
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+}
+
 @media (max-width: 767px) {
-  .profile-info {
+  .page .content .grid-page {
+    grid-template-columns: repeat(auto-fill, 100%);
+  }
+
+  .setting-info {
     width: calc(100% - 60px) !important;
     margin-top: 0 !important;
   }
 
-  .profile .info {
+  .setting .info {
     flex-direction: column;
 
   }
@@ -15,11 +23,11 @@
 }
 
 
-.profile .profile-info {
+.setting .setting-info {
   width: 100%;
 }
 
-.profile-info .info {
+.setting-info .info {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,30 +70,30 @@
   color: #666;
 }
 
-.profile-form {
+.setting-form {
   position: relative;
   margin: auto;
   margin-top: 30px;
 
 }
 
-.profile-form form {
+.setting-form form {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 }
 
-.profile-form form input {
+.setting-form form input {
   text-align: center;
   background-color: #eee;
   color: var(--black-color) !important;
 }
 
-.profile-form form input:focus {
+.setting-form form input:focus {
   background-color: #eee;
 }
 
-.profile-form form input::placeholder {
+.setting-form form input::placeholder {
   color: var(--black-color) !important;
 }
 
@@ -94,7 +102,7 @@
   box-shadow: 0 0 0 2px rgba(80, 135, 238, 0.918) !important;
 }
 
-.profile-form form label {
+.setting-form form label {
   margin-bottom: 4px !important;
   font-size: 15px;
 }
@@ -123,7 +131,7 @@ input:focus:-ms-input-placeholder {
   transition: opacity 0.4s ease-in-out;
 } */
 
-.profile-form form .submit {
+.setting-form form .submit {
   width: 250px;
   max-width: 100%;
   margin: 10px auto 0;
@@ -133,7 +141,7 @@ input:focus:-ms-input-placeholder {
   transition: var(--main-transition);
 }
 
-.profile-form form .submit:hover {
+.setting-form form .submit:hover {
   background-color: var(--hover-color);
 }
 
@@ -160,11 +168,11 @@ input:focus:-ms-input-placeholder {
 }
 
 .option-box .colors-list li:first-child {
-  background-color: #ff3150;
+  background-color: #0075ff;
 }
 
 .option-box .colors-list li:nth-child(2) {
-  background-color: #2196f3;
+  background-color: #ff3150;
 }
 
 .option-box .colors-list li:nth-child(3) {

@@ -1,8 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faGear,
+  faGraduationCap,
   faRightFromBracket,
-  faUserCircle,
+  faStar,
+  faUser,
 } from "@fortawesome/free-solid-svg-icons";
 import "./Sidebar.css";
 import { NavLink } from "react-router-dom";
@@ -11,15 +13,27 @@ function Sidebar() {
     <div className="sidebar px-2 py-2">
       <ul className="mt-3">
         <li>
-          <NavLink to="/profile" onClick={() => console.log("Profile Clicked")}>
-            <FontAwesomeIcon className="usericon" icon={faUserCircle} />
+          <NavLink to="/profile">
+            <FontAwesomeIcon icon={faUser} />
             <span className="user-info">User info</span>
           </NavLink>
         </li>
         <li>
           <NavLink to="/setting">
-            <FontAwesomeIcon className="settingicon" icon={faGear} />
+            <FontAwesomeIcon icon={faGear} />
             <span className="setting">Setting</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/courses">
+            <FontAwesomeIcon icon={faGraduationCap} />
+            <span className="setting">Courses</span>
+          </NavLink>
+        </li>
+        <li>
+          <NavLink to="/feedback">
+            <FontAwesomeIcon icon={faStar} />
+            <span className="setting">Feedback</span>
           </NavLink>
         </li>
         <hr />

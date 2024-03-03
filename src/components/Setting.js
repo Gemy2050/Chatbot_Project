@@ -23,7 +23,6 @@ function Setting() {
       e.target.dataset.color
     );
 
-    console.log(e.target.parentElement);
     e.target.parentElement
       .querySelector("li.active")
       .classList.remove("active");
@@ -32,24 +31,23 @@ function Setting() {
   };
 
   const handleFontFamily = (e) => {
-    console.log(e.target);
-    console.log(e.target.dataset.font);
     document.body.style.fontFamily = e.target.dataset.font;
   };
 
   return (
     <>
-      <div className="profile page">
+      <div className="setting page">
         <Sidebar />
-        <div className="profile-info content">
+        <div className="setting-info content">
           <h1 className="p-relative">Setting</h1>
-          <div className="grid-page profile-form">
+          <div className="grid-page setting-form">
             <div className="box">
               <div className="info">
                 <div className="image">
                   <img
                     alt="upload file"
                     src="https://gemy2050.github.io/Dashboard/imgs/avatar.png"
+                    loading="lazy"
                   />
                   <label htmlFor="imageInput">
                     <FontAwesomeIcon icon={faPen} />
@@ -96,12 +94,12 @@ function Setting() {
                   <div className="option-box rounded-2">
                     <h5 className=" mb-2">Colors</h5>
                     <ul className="colors-list d-flex mt-4 justify-content-center gap-3 align-items-center list-unstyled">
-                      <li data-color="#ff3150" onClick={handleColor}></li>
                       <li
                         data-color="#0075ff"
                         className="active"
                         onClick={handleColor}
                       ></li>
+                      <li data-color="#ff3150" onClick={handleColor}></li>
                       <li data-color="#ff9800" onClick={handleColor}></li>
                       <li data-color="green" onClick={handleColor}></li>
                       <li data-color="#e91e63" onClick={handleColor}></li>
@@ -185,4 +183,4 @@ function Setting() {
     </>
   );
 }
-export default React.memo(Setting);
+export default Setting;

@@ -13,7 +13,7 @@ function Home() {
           </p>
           <button>Get Started</button>
         </div>
-        <img src={landingImage} alt="" />
+        <img src={landingImage} alt="home" loading="lazy" />
       </div>
     </div>
   );

@@ -14,7 +14,8 @@ function Profile() {
             <div className="avatar-box text-center p-3">
               <img
                 src="https://gemy2050.github.io/Dashboard/imgs/avatar.png"
-                alt=""
+                alt="profile"
+                loading="lazy"
               />
               <h4 className="my-2">Mohamed Omar</h4>
               <span className="d-block">Level 3</span>

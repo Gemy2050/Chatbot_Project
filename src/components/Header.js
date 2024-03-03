@@ -23,12 +23,14 @@ function Header() {
           <span className="navbar-toggler-icon"></span>
         </button>
         <div className="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul className="navbar-nav ms-auto">
+          <ul className="navbar-nav pt-5 pt-md-0 ms-auto">
             <span
-              className="btn-close d-md-none fs-2 d-flex align-items-center justify-content-center ms-1"
+              className="close d-md-none fs-2  ms-1"
               data-bs-toggle="collapse"
               data-bs-target="#navbarNavDropdown"
-            ></span>
+            >
+              X
+            </span>
             <li className="nav-item p-2 fw-bold">
               <NavLink to="/" className="nav-link" aria-current="page">
                 Home

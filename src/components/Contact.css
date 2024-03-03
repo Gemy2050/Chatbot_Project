@@ -6,7 +6,6 @@
 
 
 .contact .form .main-title {
-  /* margin-top: 30px; */
   text-align: center;
   color: var(--main-color);
 }
@@ -52,10 +51,5 @@
   background-color: var(--main-color);
 }
 
-@media (max-width: 992px) {
-  .contact .form {
-    padding: 10px;
-  }
-}
 
 /* End Contact */
