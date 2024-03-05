@@ -10,7 +10,6 @@ export default function GlobalProvider({ children }) {
   const navigate = useNavigate();
 
   const addUser = (theUser) => {
-    console.log("USER ADDED", theUser);
     setUser(theUser);
   };
 
@@ -19,7 +18,6 @@ export default function GlobalProvider({ children }) {
       if (userAuth) {
         getUserInfo(userAuth.uid);
       } else {
-        console.log("No User");
         localStorage.removeItem("loggedIn");
         setUser(null);
         navigate("/register");
@@ -32,7 +30,6 @@ export default function GlobalProvider({ children }) {
     getDoc(docRef).then((doc) => {
       if (doc.exists()) {
         let user = doc.data();
-        console.log("USER", user);
         setUser(user);
 
         if (user) {
@@ -45,11 +42,9 @@ export default function GlobalProvider({ children }) {
   const handleAuth = (user) => {
     let isLogged = localStorage.getItem("loggedIn");
     if (user) {
-      console.log("There is a User");
       return false;
     }
     if (isLogged && !user) {
-      console.log("LoggedIn but Loading");
       return true;
     } else if (!isLogged) {
       return <Navigate to={"/register"} />;

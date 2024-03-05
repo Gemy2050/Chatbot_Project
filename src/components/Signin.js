@@ -1,4 +1,7 @@
-import { signInWithEmailAndPassword } from "firebase/auth";
+import {
+  sendPasswordResetEmail,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import React, { useState } from "react";
 import { auth } from "../firebase";
 import { useNavigate } from "react-router-dom";
@@ -37,12 +40,39 @@ function SignIn({ setSignupState }) {
         return;
       }
       setLoading(true);
-      await signInWithEmailAndPassword(auth, email, password);
-      navigate("/profile", { replace: true });
+      let res = await signInWithEmailAndPassword(auth, email, password);
+
+      if (res?.user?.emailVerified) {
+        navigate("/profile", { replace: true });
+      } else {
+        console.log("Navigate To Verify");
+        navigate("/verify", { replace: true, state: window.location.pathname });
+      }
     } catch (error) {
       setLoading(false);
       Swal.fire(error.message, "", "error");
     }
+  };
+
+  const resetPassword = () => {
+    if (!email.match(/^\w+@gmail\.com$/)) {
+      Swal.fire("email is not valid", "", "error");
+      return;
+    }
+    setLoading(true);
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        // Password reset email sent!
+        // ..
+        setLoading(false);
+
+        Swal.fire("Password reset email sent!", "", "success");
+      })
+      .catch((error) => {
+        setLoading(false);
+
+        Swal.fire(error.message, "", "error");
+      });
   };
 
   return (
@@ -76,7 +106,9 @@ function SignIn({ setSignupState }) {
           <button disabled={loading} onClick={login}>
             {loading ? "Loading..." : "Sign in"}
           </button>
-          <a href="/">Forget your password?</a>
+          <span className="forget" onClick={resetPassword}>
+            Forget your password?
+          </span>
           <p className="route">
             create new account?{" "}
             <span className="sign-up-btn" onClick={() => setSignupState(true)}>

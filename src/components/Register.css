@@ -153,10 +153,10 @@ body.dark-mode .register :is(label[for="profileImg"], select) {
   cursor: no-drop;
 }
 
-.register a {
+.register span.forget {
   color: #777;
   font-size: 14px;
-  text-decoration: none;
+  cursor: pointer;
   margin-bottom: 20px;
 }
 

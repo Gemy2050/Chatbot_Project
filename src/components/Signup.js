@@ -1,5 +1,8 @@
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from "firebase/auth";
 import { auth, db, storage } from "../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
@@ -99,6 +102,7 @@ function SignUp({ setSignupState }) {
 
       //Create user
       const res = await createUserWithEmailAndPassword(auth, email, password);
+      sendEmailVerification(res.user);
 
       //Create a unique image name
       const storageRef = ref(storage, `user_images/${res.user.uid}`);
@@ -119,10 +123,13 @@ function SignUp({ setSignupState }) {
             };
 
             //create user on firestore
-            await setDoc(doc(db, "users", res.user.uid), user);
+            // await setDoc(doc(db, "users", res.user.uid), user);
             addUser(user);
             setLoading(false);
-            navigate("/profile", { replace: true });
+            navigate("/verify", {
+              replace: true,
+              state: window.location.pathname,
+            });
           } catch (err) {
             Swal.fire(err.message, "", "error");
             setLoading(false);
