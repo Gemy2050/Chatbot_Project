@@ -1,29 +1,33 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useReducer,
-  useState,
-} from "react";
-import AppReducer, { initialState } from "./AppReducer";
-import { onAuthStateChanged } from "firebase/auth";
+import { createContext, useContext, useEffect, useState } from "react";
 import { auth, db } from "../firebase";
 import { doc, getDoc } from "firebase/firestore";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const GlobalContext = createContext(null);
 
 export default function GlobalProvider({ children }) {
-  // const [state, dispatch] = useReducer(AppReducer, initialState);
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
   const addUser = (theUser) => {
+    console.log("USER ADDED", theUser);
     setUser(theUser);
   };
 
+  useEffect(() => {
+    auth.onAuthStateChanged((userAuth) => {
+      if (userAuth) {
+        getUserInfo(userAuth.uid);
+      } else {
+        console.log("No User");
+        localStorage.removeItem("loggedIn");
+        setUser(null);
+        navigate("/register");
+      }
+    });
+  }, []);
+
   const getUserInfo = (id) => {
-    console.log("Get USer Info Called");
     const docRef = doc(db, "users", id);
     getDoc(docRef).then((doc) => {
       if (doc.exists()) {
@@ -33,36 +37,27 @@ export default function GlobalProvider({ children }) {
 
         if (user) {
           localStorage.setItem("loggedIn", "true");
-          console.log("Switched To Profile");
-          navigate("/profile", { replace: true });
-          console.log("User State2", user);
         }
-
-        // dispatch({ type: "SET_USER", user: doc.data() });
-        // console.log("User State", state.user);
       }
     });
   };
 
-  //* Try Storing User in LocalStorage
-
-  useEffect(() => {
-    auth.onAuthStateChanged((userAuth) => {
-      if (userAuth) {
-        getUserInfo(userAuth.uid);
-      } else {
-        console.log("No User");
-        localStorage.removeItem("loggedIn", "true");
-
-        setUser(null);
-        // dispatch({ type: "SET_USER", user: null });
-        navigate("/register", { replace: true });
-      }
-    });
-  }, []);
+  const handleAuth = (user) => {
+    let isLogged = localStorage.getItem("loggedIn");
+    if (user) {
+      console.log("There is a User");
+      return false;
+    }
+    if (isLogged && !user) {
+      console.log("LoggedIn but Loading");
+      return true;
+    } else if (!isLogged) {
+      return <Navigate to={"/register"} />;
+    }
+  };
 
   return (
-    <GlobalContext.Provider value={{ user, addUser }}>
+    <GlobalContext.Provider value={{ user, addUser, handleAuth }}>
       {children}
     </GlobalContext.Provider>
   );
@@ -70,8 +65,4 @@ export default function GlobalProvider({ children }) {
 
 export const useAuth = () => {
   return useContext(GlobalContext);
-};
-
-export const isLogged = () => {
-  return localStorage.getItem("loggedIn");
 };

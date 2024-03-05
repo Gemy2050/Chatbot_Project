@@ -10,7 +10,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 import "./Feedback.css";
+import { useAuth } from "../context/GlobalState";
+import Loader from "./Loader";
 function Feedback() {
+  const { user, handleAuth } = useAuth();
+  if (handleAuth(user)) {
+    return <Loader />;
+  }
+
   return (
     <div className="page">
       <Sidebar />

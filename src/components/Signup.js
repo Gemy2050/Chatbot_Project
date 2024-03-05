@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db, storage } from "../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
@@ -8,7 +8,7 @@ import { doc, setDoc } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { useAuth } from "../context/GlobalState";
 import { useNavigate } from "react-router-dom";
-import Loader from "./Loader";
+import Loader from "./Loader.js";
 
 function SignUp({ setSignupState }) {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,7 +23,6 @@ function SignUp({ setSignupState }) {
   const [image, setImage] = useState(null);
   const [labelText, setLabelText] = useState("Upload Profile Image");
 
-  const [err, setErr] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const { addUser } = useAuth();
@@ -46,13 +45,13 @@ function SignUp({ setSignupState }) {
     e.preventDefault();
 
     let inputs = {
-      firstName,
-      lastName,
-      phone,
+      firstName: firstName.toLowerCase(),
+      lastName: lastName.toLowerCase(),
+      email: email.toLowerCase(),
       gender,
+      phone,
       level,
       department,
-      email,
       password,
       image,
     };
@@ -115,37 +114,31 @@ function SignUp({ setSignupState }) {
               userType: "Student",
               courses: null,
               gpa: null,
-              fullName: firstName + " " + lastName,
+              fullName: firstName.toLowerCase() + " " + lastName.toLowerCase(),
               profileIcon: downloadURL,
             };
-
-            // // update profile
-            // await updateProfile(res.user, {
-            //   displayName: firstName + " " + lastName,
-            //   photoURL: downloadURL,
-            // });
 
             //create user on firestore
             await setDoc(doc(db, "users", res.user.uid), user);
             addUser(user);
-            // dispatch({ type: "SET_USER", user: user });
+            setLoading(false);
             navigate("/profile", { replace: true });
           } catch (err) {
             Swal.fire(err.message, "", "error");
-            setErr(true);
             setLoading(false);
           }
         });
       });
     } catch (err) {
       Swal.fire(err.message, "", "error");
-      setErr(true);
       setLoading(false);
     }
   };
 
   return (
     <>
+      {loading && <Loader />}
+
       <div className="sign-up">
         <form action="#">
           <h1>Create Account</h1>
@@ -267,7 +260,6 @@ function SignUp({ setSignupState }) {
           </p>
         </form>
       </div>
-      {loading && <Loader />}
     </>
   );
 }

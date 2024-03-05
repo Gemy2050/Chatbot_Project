@@ -9,8 +9,29 @@ import {
 import "./Sidebar.css";
 import { NavLink } from "react-router-dom";
 import { auth } from "../firebase";
+import { useState } from "react";
+import Swal from "sweetalert2";
+import Loader from "./Loader";
 
 function Sidebar() {
+  const [loading, setLoading] = useState(false);
+
+  const logout = async () => {
+    try {
+      setLoading(true);
+      await auth.signOut();
+      setLoading(false);
+    } catch (error) {
+      setLoading(false);
+      console.log("error in logout", error.message);
+      Swal.fire("something went wrong", "", "error");
+    }
+  };
+
+  if (loading) {
+    return <Loader />;
+  }
+
   return (
     <div className="sidebar px-2 py-2">
       <ul className="mt-3">
@@ -40,13 +61,13 @@ function Sidebar() {
           </NavLink>
         </li>
         <li className="log-out mt-auto mb-3">
-          <NavLink to={"/register"} onClick={() => auth.signOut()}>
+          <button className="log-out" onClick={logout}>
             <FontAwesomeIcon
               className="logout-icon"
               icon={faRightFromBracket}
             />
             <span>Log out</span>
-          </NavLink>
+          </button>
         </li>
       </ul>
     </div>

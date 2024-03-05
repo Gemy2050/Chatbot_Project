@@ -3,19 +3,17 @@ import { faPen } from "@fortawesome/free-solid-svg-icons";
 import "./Setting.css";
 import Sidebar from "./Sidebar";
 import React, { useEffect, useState } from "react";
-import { isLogged, useAuth } from "../context/GlobalState";
+import { useAuth } from "../context/GlobalState";
 import Loader from "./Loader";
-import { Navigate } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
 
 function Setting() {
-  const { user } = useAuth();
+  const { user, handleAuth } = useAuth();
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [phone, setPhone] = useState("");
   const [location, setLocation] = useState("Cairo, Egypt");
-
-  const [loading, setLoading] = useState(!user);
 
   const [darkMode, setDarkMode] = useState(false);
 
@@ -29,11 +27,11 @@ function Setting() {
       setFirstName(user.firstName);
       setLastName(user.lastName);
       setPhone(user.phone);
-      setLoading(false);
     }
   }, [user]);
-  if (!isLogged()) {
-    return <Navigate to="/register" />;
+
+  if (handleAuth(user)) {
+    return <Loader />;
   }
 
   const handleDarkMode = (e) => {
@@ -60,7 +58,6 @@ function Setting() {
 
   return (
     <>
-      {loading && <Loader />}
       <div className="setting page">
         <Sidebar />
         <div className="setting-info content">
@@ -85,7 +82,7 @@ function Setting() {
                   />
                 </div>
                 <div className="text">
-                  <h3 className="m-0">{user?.fullName}</h3>
+                  <h3 className="m-0 text-capitalize">{user?.fullName}</h3>
                   <p className="m-0 c-grey">Cairo, Egypt</p>
                 </div>
               </div>

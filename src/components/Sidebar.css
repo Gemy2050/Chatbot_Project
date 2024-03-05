@@ -82,7 +82,8 @@
    width: 100%;
  }
 
- .sidebar ul a {
+ .sidebar ul a,
+ button.log-out {
    display: flex;
    align-items: center;
    gap: 5px;
@@ -100,7 +101,7 @@
  }
 
  .sidebar ul li a:hover,
-
+ button.log-out:hover,
  .sidebar ul li a:hover svg {
    background-color: var(--gray-color);
  }

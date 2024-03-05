@@ -25,8 +25,17 @@ function SignIn({ setSignupState }) {
   };
 
   const login = async (e) => {
+    e.preventDefault();
     try {
-      e.preventDefault();
+      if (!email.match(/^\w+@gmail\.com$/)) {
+        Swal.fire("email is not valid", "", "error");
+        return;
+      }
+
+      if (password.length < 8) {
+        Swal.fire("Password must be at least 8 characters", "", "error");
+        return;
+      }
       setLoading(true);
       await signInWithEmailAndPassword(auth, email, password);
       navigate("/profile", { replace: true });

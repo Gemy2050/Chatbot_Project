@@ -3,14 +3,17 @@ import "./Register.css";
 import SignIn from "./Signin";
 import SignUp from "./Signup";
 import { useAuth } from "../context/GlobalState";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 function Register() {
   const [signupState, setSignupState] = useState(true);
 
   const { user } = useAuth();
+  const location = useLocation();
+  let redirectPath = location.state?.path || "/profile";
+
   if (user) {
-    return <Navigate to={"/profile"} />;
+    return <Navigate to={redirectPath} />;
   }
 
   return (
