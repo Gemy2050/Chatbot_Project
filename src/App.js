@@ -1,8 +1,7 @@
-import { Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
-import Register from "./components/Register";
 import Error from "./components/Error";
 import Setting from "./components/Setting";
 import Profile from "./components/Profile";
@@ -10,8 +9,18 @@ import Contact from "./components/Contact";
 import About from "./components/About";
 import Courses from "./components/Courses";
 import Feedback from "./components/Feedback";
+import { useAuth } from "./context/GlobalState";
+import Register from "./components/Register";
 
 function App() {
+  const { user } = useAuth();
+  const ProtectedRoute = ({ children }) => {
+    if (!user) {
+      return <Navigate to="/register" />;
+    }
+    return children;
+  };
+
   return (
     <div className="App">
       <Header />

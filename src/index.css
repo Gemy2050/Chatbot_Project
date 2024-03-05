@@ -43,6 +43,10 @@ body.dark-mode {
   --gray-color: #010409 !important;
 }
 
+.swal2-title {
+  text-transform: capitalize;
+}
+
 
 
 

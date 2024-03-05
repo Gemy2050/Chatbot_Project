@@ -1,47 +1,23 @@
 import { useState } from "react";
 import "./Register.css";
+import SignIn from "./Signin";
+import SignUp from "./Signup";
+import { useAuth } from "../context/GlobalState";
+import { Navigate } from "react-router-dom";
+
 function Register() {
   const [signupState, setSignupState] = useState(true);
+
+  const { user } = useAuth();
+  if (user) {
+    return <Navigate to={"/profile"} />;
+  }
 
   return (
     <div className="register">
       <div className={`container ${signupState && "right-active"}`}>
-        <div className="sign-up">
-          <form action="#">
-            <h1>Create Account</h1>
-            <input type="text" placeholder="Name" required />
-            <input type="email" placeholder="Email" required />
-            <input type="password" placeholder="Password" required />
-            <button>Sign up</button>
-            <p className="route">
-              have an account?{" "}
-              <span
-                className="sign-in-btn"
-                onClick={() => setSignupState(false)}
-              >
-                Sign in
-              </span>
-            </p>
-          </form>
-        </div>
-        <div className="sign-in">
-          <form action="#">
-            <h1>Sign in</h1>
-            <input type="email" placeholder="Email" required />
-            <input type="password" placeholder="Password" required />
-            <button>Sign in</button>
-            <a href="/">Forget your password?</a>
-            <p className="route">
-              create new account?{" "}
-              <span
-                className="sign-up-btn"
-                onClick={() => setSignupState(true)}
-              >
-                Sign up
-              </span>
-            </p>
-          </form>
-        </div>
+        <SignUp setSignupState={setSignupState} />
+        <SignIn setSignupState={setSignupState} />
         <div className="overlay-container">
           <div className="overlay-left">
             <h1>Welcome Back</h1>

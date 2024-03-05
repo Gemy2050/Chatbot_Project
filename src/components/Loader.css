@@ -1,0 +1,44 @@
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: var(--gray-color);
+  /* opacity: .7; */
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  position: absolute;
+  background-color: black;
+  width: 250px;
+  height: 200px;
+  border-radius: 6px;
+  /* top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.loader span {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 4px solid;
+  border-color: white white white transparent;
+  animation: spin 1.5s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    rotate: 360deg;
+  }
+}

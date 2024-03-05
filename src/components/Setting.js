@@ -3,14 +3,38 @@ import { faPen } from "@fortawesome/free-solid-svg-icons";
 import "./Setting.css";
 import Sidebar from "./Sidebar";
 import React, { useEffect, useState } from "react";
+import { isLogged, useAuth } from "../context/GlobalState";
+import Loader from "./Loader";
+import { Navigate } from "react-router-dom";
 
 function Setting() {
+  const { user } = useAuth();
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [location, setLocation] = useState("Cairo, Egypt");
+
+  const [loading, setLoading] = useState(!user);
+
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     const bodyHasDarkClass = document.body.classList.contains("dark-mode");
     setDarkMode(bodyHasDarkClass);
   }, []);
+
+  useEffect(() => {
+    if (user) {
+      setFirstName(user.firstName);
+      setLastName(user.lastName);
+      setPhone(user.phone);
+      setLoading(false);
+    }
+  }, [user]);
+  if (!isLogged()) {
+    return <Navigate to="/register" />;
+  }
 
   const handleDarkMode = (e) => {
     document.body.classList.toggle("dark-mode");
@@ -36,6 +60,7 @@ function Setting() {
 
   return (
     <>
+      {loading && <Loader />}
       <div className="setting page">
         <Sidebar />
         <div className="setting-info content">
@@ -46,7 +71,7 @@ function Setting() {
                 <div className="image">
                   <img
                     alt="upload file"
-                    src="https://gemy2050.github.io/Dashboard/imgs/avatar.png"
+                    src={user?.profileIcon}
                     loading="lazy"
                   />
                   <label htmlFor="imageInput">
@@ -60,26 +85,50 @@ function Setting() {
                   />
                 </div>
                 <div className="text">
-                  <h3 className="m-0">Mohamed Omar</h3>
+                  <h3 className="m-0">{user?.fullName}</h3>
                   <p className="m-0 c-grey">Cairo, Egypt</p>
                 </div>
               </div>
               <form action="#" className="row g-4 mt-2">
                 <div className="col-sm-6">
                   <label className="form-label m-0 c-grey">First Name</label>
-                  <input type="text" className="form-control" />
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    required
+                  />
                 </div>
                 <div className="col-sm-6">
                   <label className="form-label m-0 c-grey">Last Name</label>
-                  <input type="text" className="form-control" />
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    required
+                  />
                 </div>
                 <div className="col-sm-6">
                   <label className="form-label m-0 c-grey ">Phone</label>
-                  <input type="number" className="form-control" />
+                  <input
+                    type="number"
+                    className="form-control"
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    required
+                  />
                 </div>
                 <div className="col-sm-6">
                   <label className="form-label m-0 c-grey">Location</label>
-                  <input type="text" className="form-control" />
+                  <input
+                    type="text"
+                    className="form-control"
+                    value={location}
+                    onChange={(e) => setLocation(e.target.value)}
+                    required
+                  />
                 </div>
 
                 <button className="submit text-white rounded-3 mt-4">

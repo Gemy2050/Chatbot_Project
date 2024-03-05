@@ -1,30 +1,38 @@
 import React from "react";
 import Sidebar from "./Sidebar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFaceSadCry,faFaceFrown,faFaceMeh ,faFaceGrinHearts,faFaceGrinWide } from "@fortawesome/free-solid-svg-icons";
+import {
+  faFaceSadCry,
+  faFaceFrown,
+  faFaceMeh,
+  faFaceGrinHearts,
+  faFaceGrinWide,
+} from "@fortawesome/free-solid-svg-icons";
 
-import './Feedback.css'
+import "./Feedback.css";
 function Feedback() {
   return (
-    <div className=" page">
+    <div className="page">
       <Sidebar />
-      <div className="content">
+      <div className="content px-2">
         <h1 className="p-relative">Feedback</h1>
-        <div className="feedback grid-page">
-          <div className="feedback">
-            <h3>how are you feeling?</h3>
-            <p>your input is valuable in helping us better understand your needs</p>
-            <div className="react-icon">
-                <FontAwesomeIcon  icon={faFaceSadCry} />
-                <FontAwesomeIcon icon={faFaceFrown} />
-                <FontAwesomeIcon className="active-icon" icon={faFaceMeh} />
-                <FontAwesomeIcon icon={faFaceGrinWide} />
-                <FontAwesomeIcon icon={faFaceGrinHearts} />
+        <div className="feedback">
+          <div>
+            <h3>How Are You Feeling?</h3>
+            <p className="c-grey">
+              your input is valuable in helping us better understand your needs
+            </p>
+            <div className="react-icon py-3 text-center">
+              <FontAwesomeIcon icon={faFaceSadCry} />
+              <FontAwesomeIcon icon={faFaceFrown} />
+              <FontAwesomeIcon className="active" icon={faFaceMeh} />
+              <FontAwesomeIcon icon={faFaceGrinWide} />
+              <FontAwesomeIcon icon={faFaceGrinHearts} />
             </div>
-              <div className="form">
-                <textarea placeholder="Add a comment"></textarea>
-                <button>Submit Now</button>
-              </div>
+            <div className="form">
+              <textarea placeholder="Add a comment"></textarea>
+              <button>Submit Now</button>
+            </div>
           </div>
         </div>
       </div>

@@ -18,10 +18,6 @@
   border-radius: 50%;
 }
 
-.navbar .navbar-toggler {
-  border: 1px solid var(--main-color);
-}
-
 .navbar .navbar-toggler:focus {
   box-shadow: 0 0 10px var(--main-color) !important;
   transition: .3s;
